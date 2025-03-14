@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "@/assets/styles/globals.css";
+import { APP_DESCRIPTION, APP_NAME, SERVER_URL } from "@/lib/constants";
 
 const roboto = Roboto({
   weight: ["300", "700"],
@@ -8,9 +9,12 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Shoes store",
-  description:
-    "Shoes store website built with Next.js 15, TypeScript, postgres,prisma and Tailwind CSS.",
+  title: {
+    template: "%s | Shoe Store",
+    default: `${APP_NAME}`,
+  },
+  description: `${APP_DESCRIPTION}`,
+  metadataBase: new URL(SERVER_URL),
 };
 
 export default function RootLayout({
