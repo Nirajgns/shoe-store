@@ -18,6 +18,28 @@ const ProductCard = ({ product }: { product: any }) => {
         <Link href={`product/${product.slug}`}>
           <h2 className="text-sm font-medium">{product.name}</h2>
         </Link>
+
+        {/* display colors */}
+        <div className="flex items-center gap-2">
+          <strong className="text">Colors:</strong>
+          <div className="flex gap-1">
+            {product.colors?.map((color: string, index: number) => (
+              <div key={index} className="w-5 h-5 rounded-full" style={{ backgroundColor: color }} title={color}></div>
+            ))}
+          </div>
+        </div>
+
+        {/* display sizes */}
+        <div className="flex items-center gap-2">
+          <strong className="text">Sizes:</strong>
+          <div className="flex gap-1">
+            {product.sizes?.map((size: string, index: number) => (
+              <div key={index} className="px-2 py-1 text-xs rounded-md border font-medium">
+                {size}
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="flex-between gap-4">
           <p>{product.rating} Stars</p>
           {product.price > 0 ? (
