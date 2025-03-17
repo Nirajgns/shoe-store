@@ -1,16 +1,16 @@
 import { cn } from "@/lib/utils";
-import React from "react";
+const ProductPrice = ({ value, className }: { value: number; className?: string }) => {
+  // const stringValue = value.toFixed(2);
 
-function ProductPrice({ value, className }: { value: number; className?: string }) {
-  const stringValue = value.toFixed(2);
-  const [integer, decimal] = stringValue.split(".");
+  const [intValue, floatValue] = value.toString().split(".");
 
   return (
     <p className={cn("text-2xl", className)}>
-      <span className="text-xs align-baseline">Rs. </span>
-      {integer}.<span className="text-xs align-baseline">{decimal}</span>
+      <span className="text-xs align-super">$</span>
+      {intValue}
+      <span className="text-xs align-super">.{floatValue}</span>
     </p>
   );
-}
+};
 
 export default ProductPrice;
