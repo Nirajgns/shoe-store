@@ -15,3 +15,9 @@ export async function getLatestProducts() {
   //use this function to convert a prisma object to plain object
   return convertToPlainObject(data);
 }
+
+//get Single product by slug
+
+export async function getProductBySlug(slug: string) {
+  return prisma.product.findFirst({ where: { slug: slug } });
+}
