@@ -1,3 +1,4 @@
+import ProductImages from "@/components/shared/products/product-images";
 import ProductPrice from "@/components/shared/products/product-price";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,7 +21,9 @@ const ProductDetailsPage = async (props: { params: Promise<{ slug: string }> }) 
       <section>
         <div className="grid grid-cols-1 md:grid-cols-5">
           {/* image section*/}
-          <div className="col-span-2"></div>
+          <div className="col-span-2">
+            <ProductImages images={product.images} />
+          </div>
 
           {/* product details */}
           <div className="col-span-2 p-5">
